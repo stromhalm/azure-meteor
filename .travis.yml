@@ -1,0 +1,7 @@
+language: node_js
+script:
+  - npm install -g demeteorizer
+  - demeteorizer
+  - cd .demeteorized/bundle/programs/server
+  - npm install
+  - echo "0"
