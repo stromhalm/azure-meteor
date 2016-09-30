@@ -12,7 +12,7 @@ script:
   - npm install
   - cd ../..
   - curl https://raw.githubusercontent.com/christopheranderson/azure-demeteorizer/master/resources/web.config > web.config
-  - cd ../../../..
+  - cd ../..
   - shopt -s extglob
   - rm -rf !(.demeteorized) # Delete unused files
   - mv .demeteorized/bundle/* .
