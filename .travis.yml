@@ -9,6 +9,8 @@ script:
   - npm install
   - cd ../..
   - curl https://raw.githubusercontent.com/christopheranderson/azure-demeteorizer/master/resources/web.config > web.config
+  - git config --global user.email 'noreply@nodomain.com'
+  - git config --global user.name 'No Name'
   - git init
   - git add .
   - git commit -m "initial commit"
