@@ -10,4 +10,4 @@ script:
   - cd ../..
   - curl https://raw.githubusercontent.com/christopheranderson/azure-demeteorizer/master/resources/web.config > web.config
   - cd ..
-  - "find bundle -type f -exec curl -u $AZURE_WA_USERNAME:$AZURE_WA_PASSWORD --ftp-create-dirs -T {} $AZURE_WA_URL/{} \\;"
+  - "find bundle -type f -exec curl -u $AZURE_WA_USERNAME:$AZURE_WA_PASSWORD --ftp-create-dirs -T {} $AZURE_WA_URL/site/{} \\;"
