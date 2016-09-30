@@ -1,6 +1,9 @@
 language: node_js
 node_js: 4
 sudo: required
+deploy:
+  provider: azure_web_apps
+  skip_cleanup: true
 script:
   - curl https://install.meteor.com/ | sh
   - npm install -g demeteorizer
@@ -9,12 +12,9 @@ script:
   - npm install
   - cd ../..
   - curl https://raw.githubusercontent.com/christopheranderson/azure-demeteorizer/master/resources/web.config > web.config
-  - git config --global user.email 'noreply@nodomain.com'
-  - git config --global user.name 'No Name'
-  - git init
-  - git add .
-  - git commit -m "initial commit"
-  - git remote add remoteapp https://$AZURE_WA_USERNAME:$AZURE_WA_PASSWORD@$AZURE_WA_URL
-  - git push remoteapp master
+  - cd .
+  - shopt -s extglob
+  - rm -rf !(.demeteorized) # Delete unused files
+  - mv .demeteorized/bundle/* .
  # - cd ..
  # - "find bundle -type f -exec curl -u $AZURE_WA_USERNAME:$AZURE_WA_PASSWORD --ftp-create-dirs -T {} $AZURE_WA_URL/site/{} \\;"
